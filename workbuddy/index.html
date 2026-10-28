@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="张三的个人主页——创意开发者与产品设计爱好者，记录项目、写作、经历与数字生活。">
+  <meta name="theme-color" content="#f3f0e8">
+  <meta name="color-scheme" content="light dark">
+  <title>张三 · 创意开发者与个人主页</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23173c34'/%3E%3Cpath d='M17 18h31L27 45h22' fill='none' stroke='%23c7ef73' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <script>
+    document.documentElement.classList.add('js');
+    (function () {
+      var saved = null;
+      try {
+        saved = localStorage.getItem('zs-portfolio-theme');
+      } catch (error) {
+        // 存储不可用（如隐私模式）时忽略，仍继续跟随系统偏好。
+      }
+      document.documentElement.dataset.theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    })();
+  </script>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/data.js" defer></script>
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">跳转到主要内容</a>
+  <div class="scroll-progress" aria-hidden="true"><span id="scroll-progress-bar"></span></div>
+
+  <svg class="svg-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <symbol id="icon-arrow-up-right" viewBox="0 0 24 24">
+        <path d="M7 17 17 7M7 7h10v10"/>
+      </symbol>
+      <symbol id="icon-arrow-down" viewBox="0 0 24 24">
+        <path d="M12 4v16m-6-6 6 6 6-6"/>
+      </symbol>
+      <symbol id="icon-sun" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/>
+      </symbol>
+      <symbol id="icon-moon" viewBox="0 0 24 24">
+        <path d="M20.7 13.1A8.5 8.5 0 0 1 10.9 3.3 8.5 8.5 0 1 0 20.7 13.1Z"/>
+      </symbol>
+      <symbol id="icon-menu" viewBox="0 0 24 24">
+        <path d="M4 7h16M4 12h16M4 17h16"/>
+      </symbol>
+      <symbol id="icon-close" viewBox="0 0 24 24">
+        <path d="m6 6 12 12M18 6 6 18"/>
+      </symbol>
+      <symbol id="icon-copy" viewBox="0 0 24 24">
+        <rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/>
+      </symbol>
+      <symbol id="icon-check" viewBox="0 0 24 24">
+        <path d="m5 12 4 4L19 6"/>
+      </symbol>
+      <symbol id="icon-mail" viewBox="0 0 24 24">
+        <rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/>
+      </symbol>
+      <symbol id="icon-map" viewBox="0 0 24 24">
+        <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <header class="site-header" id="site-header">
+    <div class="nav-shell">
+      <a class="brand" href="#home" aria-label="张三的个人主页，返回顶部">
+        <span class="brand-mark" aria-hidden="true">Z<span>.</span></span>
+        <span class="brand-copy">
+          <strong data-bind="profile.name">张三</strong>
+          <small data-bind="profile.role">创意开发者</small>
+        </span>
+      </a>
+
+      <nav class="primary-nav" id="primary-nav" aria-label="主导航">
+        <a href="#about" data-section="about"><span>01</span>关于我</a>
+        <a href="#skills" data-section="skills"><span>02</span>技能</a>
+        <a href="#works" data-section="works"><span>03</span>作品与站点</a>
+        <a href="#experience" data-section="experience"><span>04</span>经历</a>
+        <a href="#blog" data-section="blog"><span>05</span>博客</a>
+        <a href="#contact" data-section="contact"><span>06</span>联系方式</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon-button theme-toggle" id="theme-toggle" type="button" aria-label="切换为深色主题" title="切换明暗主题">
+          <svg class="theme-icon theme-icon--sun" aria-hidden="true"><use href="#icon-sun"/></svg>
+          <svg class="theme-icon theme-icon--moon" aria-hidden="true"><use href="#icon-moon"/></svg>
+        </button>
+        <button class="icon-button menu-toggle" id="menu-toggle" type="button" aria-label="打开导航菜单" aria-expanded="false" aria-controls="primary-nav">
+          <svg class="menu-icon menu-icon--open" aria-hidden="true"><use href="#icon-menu"/></svg>
+          <svg class="menu-icon menu-icon--close" aria-hidden="true"><use href="#icon-close"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="hero-decoration hero-decoration--one" aria-hidden="true"></div>
+      <div class="hero-decoration hero-decoration--two" aria-hidden="true"></div>
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="availability hero-enter" style="--enter-order: 0">
+            <span class="availability-dot" aria-hidden="true"></span>
+            <span data-bind="profile.availability">开放自由职业与合作机会</span>
+          </div>
+          <p class="hero-greeting hero-enter" style="--enter-order: 1">你好，我是<span data-bind="profile.name">张三</span>。<span class="hero-greeting-en">A creative developer.</span></p>
+          <h1 class="hero-title hero-enter" id="hero-title" style="--enter-order: 2">
+            把复杂的技术，<br>
+            做成<em>简单的体验。</em>
+          </h1>
+          <p class="hero-intro hero-enter" style="--enter-order: 3" data-bind="profile.intro">
+            一名关注设计与工程的创意开发者，喜欢把模糊的想法变成清晰、好用且有一点惊喜的数字产品。
+          </p>
+          <div class="hero-actions hero-enter" style="--enter-order: 4">
+            <a class="button button--primary" href="#works">
+              查看我的作品
+              <svg aria-hidden="true"><use href="#icon-arrow-down"/></svg>
+            </a>
+            <a class="button button--text" href="#contact">
+              和我聊聊
+              <svg aria-hidden="true"><use href="#icon-arrow-up-right"/></svg>
+            </a>
+          </div>
+          <dl class="hero-stats hero-enter" id="hero-stats" style="--enter-order: 5" aria-label="个人数据概览"></dl>
+        </div>
+
+        <div class="hero-visual hero-enter" style="--enter-order: 3">
+          <div class="portrait-wrap" id="portrait-wrap">
+            <div class="portrait-card">
+              <div class="portrait-topline">
+                <span>PORTRAIT / 2026</span>
+                <span>31.23° N</span>
+              </div>
+              <div class="portrait-monogram" aria-hidden="true">Z</div>
+              <svg class="portrait-image" viewBox="0 0 420 500" role="img" aria-labelledby="avatar-title avatar-desc">
+                <title id="avatar-title">张三的插画头像</title>
+                <desc id="avatar-desc">一幅以墨绿、橙色和米白绘制的几何风格人物肖像</desc>
+                <defs>
+                  <linearGradient id="shirt-gradient" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#294f43"/>
+                    <stop offset="1" stop-color="#102f28"/>
+                  </linearGradient>
+                </defs>
+                <circle cx="215" cy="225" r="151" fill="#c7ef73" opacity=".96"/>
+                <path d="M40 500c8-115 77-174 170-174s167 59 178 174H40Z" fill="url(#shirt-gradient)"/>
+                <path d="M158 307h104v78c-23 31-81 30-104 0v-78Z" fill="#d8936e"/>
+                <ellipse cx="210" cy="226" rx="96" ry="117" fill="#efbd98"/>
+                <path d="M117 230c-17-100 38-152 105-146 73 6 105 65 86 143l-20-58c-46 16-96 3-128-23-2 39-17 63-43 84Z" fill="#172b25"/>
+                <path d="M125 219c-21-10-31 10-20 37 7 19 21 24 33 14m157-51c21-10 31 10 20 37-7 19-21 24-33 14" fill="#efbd98"/>
+                <g fill="none" stroke="#263c35" stroke-width="7">
+                  <rect x="137" y="209" width="59" height="43" rx="17"/>
+                  <rect x="222" y="209" width="59" height="43" rx="17"/>
+                  <path d="M196 224h26m-85-3-17-8m161 8 17-8"/>
+                </g>
+                <g fill="#263c35">
+                  <circle cx="169" cy="230" r="5"/><circle cx="249" cy="230" r="5"/>
+                </g>
+                <path d="M203 235c-2 15-6 30-3 35 5 5 13 6 21 2M179 294c18 15 45 16 63-1" fill="none" stroke="#a7644e" stroke-width="5" stroke-linecap="round"/>
+                <path d="m156 357 54 47 54-47 31 22-28 121H151l-26-121 31-22Z" fill="#f5f0e6"/>
+                <path d="m210 404-22 34 22 62 23-62-23-34Z" fill="#e9673f"/>
+              </svg>
+              <div class="portrait-caption">
+                <div>
+                  <span>DESIGN × CODE</span>
+                  <strong>让想法落地生根</strong>
+                </div>
+                <span class="portrait-caption-mark" aria-hidden="true">✳</span>
+              </div>
+            </div>
+            <svg class="orbit-stamp" viewBox="0 0 120 120" aria-hidden="true">
+              <defs><path id="orbit-path" d="M60,60 m-43,0 a43,43 0 1,1 86,0 a43,43 0 1,1 -86,0"/></defs>
+              <circle cx="60" cy="60" r="58"/>
+              <text><textPath href="#orbit-path">STAY CURIOUS · KEEP MAKING · </textPath></text>
+              <path class="orbit-spark" d="M60 44v32M44 60h32M49 49l22 22m0-22L49 71"/>
+            </svg>
+          </div>
+          <p class="visual-note"><span aria-hidden="true">↳</span> 在理性与想象力之间，找到刚刚好的平衡。</p>
+        </div>
+      </div>
+      <a class="scroll-cue" href="#about" aria-label="向下滚动了解我">
+        <span>SCROLL TO EXPLORE</span>
+        <svg aria-hidden="true"><use href="#icon-arrow-down"/></svg>
+      </a>
+    </section>
+
+    <section class="section about" id="about" aria-labelledby="about-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="section-kicker"><span>01</span> 关于我 / ABOUT</p>
+          <span class="section-rule" aria-hidden="true"></span>
+        </div>
+        <div class="about-grid">
+          <div class="about-heading reveal">
+            <p class="mini-label">BEYOND THE SCREEN</p>
+            <h2 id="about-title">在代码之外，<br>保留对人的<em>好奇。</em></h2>
+            <div class="about-doodle" aria-hidden="true">
+              <svg viewBox="0 0 180 60"><path d="M4 42c26-31 47 13 71-11s39-25 58-7 28 9 42-12"/><path d="m150 8 25 4-10 22"/></svg>
+              <span>永远保持探索</span>
+            </div>
+          </div>
+          <div class="about-content reveal" id="about-content"></div>
+        </div>
+        <div class="interest-row reveal" id="interest-row" aria-label="兴趣方向"></div>
+      </div>
+    </section>
+
+    <section class="section skills-section" id="skills" aria-labelledby="skills-title">
+      <div class="container">
+        <div class="section-heading section-heading--inverse reveal">
+          <p class="section-kicker"><span>02</span> 技能 / CAPABILITIES</p>
+          <span class="section-rule" aria-hidden="true"></span>
+        </div>
+        <div class="skills-grid">
+          <div class="skills-intro reveal">
+            <p class="mini-label">HOW I CREATE VALUE</p>
+            <h2 id="skills-title">工具会更新，<br>解决问题的方式<em>会留下。</em></h2>
+            <p>从一张草图到一次顺畅的交互，我关注每个环节如何共同服务于真实的人。</p>
+            <div class="now-card">
+              <span class="now-card-label"><i aria-hidden="true"></i> NOW / 正在探索</span>
+              <p>本地优先应用、生成式交互，以及如何让 AI 成为自然而不打扰的产品能力。</p>
+            </div>
+          </div>
+          <div class="skills-list reveal" id="skills-list"></div>
+        </div>
+        <div class="toolbox reveal">
+          <span class="toolbox-label">日常工具箱</span>
+          <div class="toolbox-tags" id="toolbox-tags"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section works-section" id="works" aria-labelledby="works-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="section-kicker"><span>03</span> 精选作品与站点 / SELECTED WORK</p>
+          <span class="section-rule" aria-hidden="true"></span>
+        </div>
+        <div class="works-top reveal">
+          <div>
+            <h2 id="works-title">做过的东西，<br>和常去的<em>数字角落。</em></h2>
+          </div>
+          <p>这里既收藏我亲手打造的项目，也汇总散落在网络各处的个人站点。欢迎随意逛逛。</p>
+        </div>
+        <div class="works-toolbar reveal">
+          <div class="filter-group" id="kind-filters" role="group" aria-label="按类型筛选作品">
+            <button class="filter-button is-active" type="button" data-kind="all" aria-pressed="true">全部 <span>07</span></button>
+            <button class="filter-button" type="button" data-kind="project" aria-pressed="false">项目 <span>03</span></button>
+            <button class="filter-button" type="button" data-kind="site" aria-pressed="false">站点 <span>04</span></button>
+          </div>
+          <label class="tag-filter">
+            <span>按标签</span>
+            <select id="tag-filter" aria-label="按标签筛选作品">
+              <option value="all">全部标签</option>
+            </select>
+          </label>
+        </div>
+        <p class="sr-only" id="works-status" role="status" aria-live="polite"></p>
+        <div class="works-grid" id="works-grid"></div>
+        <div class="works-empty" id="works-empty" hidden>
+          <p>暂时没有符合条件的条目。</p>
+          <button type="button" id="reset-filters">重置筛选</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section experience-section" id="experience" aria-labelledby="experience-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="section-kicker"><span>04</span> 经历 / JOURNEY</p>
+          <span class="section-rule" aria-hidden="true"></span>
+        </div>
+        <div class="experience-layout">
+          <div class="experience-intro reveal">
+            <p class="mini-label">THE ROAD SO FAR</p>
+            <h2 id="experience-title">一路走来，<br>始终热爱<em>创造。</em></h2>
+            <p>每一次角色变化，都是理解设计与协作的新视角。</p>
+          </div>
+          <ol class="timeline" id="timeline"></ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="section blog-section" id="blog" aria-labelledby="blog-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="section-kicker"><span>05</span> 博客 / NOTES &amp; ESSAYS</p>
+          <span class="section-rule" aria-hidden="true"></span>
+        </div>
+        <div class="blog-top reveal">
+          <h2 id="blog-title">把思考写下来，<br>让灵感<em>有迹可循。</em></h2>
+          <p>关于前端、设计、工具，也记录一些不急着得到答案的问题。</p>
+        </div>
+        <div class="blog-list" id="blog-list"></div>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="contact-card reveal">
+          <div class="contact-orbit contact-orbit--one" aria-hidden="true"></div>
+          <div class="contact-orbit contact-orbit--two" aria-hidden="true"></div>
+          <div class="contact-topline">
+            <p class="section-kicker"><span>06</span> 联系方式 / SAY HELLO</p>
+            <span class="availability availability--dark"><i class="availability-dot" aria-hidden="true"></i>通常会在 1–2 天内回复</span>
+          </div>
+          <div class="contact-main">
+            <div>
+              <p class="mini-label">HAVE AN IDEA?</p>
+              <h2 id="contact-title">有个想法？<br><em>聊聊吧。</em></h2>
+            </div>
+            <div class="contact-action">
+              <p>无论是一个新项目、一次合作，还是只想交换有趣的想法，都欢迎来信。</p>
+              <div class="email-row">
+                <a id="email-link" href="mailto:hello@zhangsan.dev">
+                  <svg aria-hidden="true"><use href="#icon-mail"/></svg>
+                  <span data-bind="profile.email">hello@zhangsan.dev</span>
+                </a>
+                <button class="copy-button" id="copy-email" type="button" aria-label="复制邮箱地址" title="复制邮箱地址">
+                  <svg class="copy-icon" aria-hidden="true"><use href="#icon-copy"/></svg>
+                  <svg class="check-icon" aria-hidden="true"><use href="#icon-check"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="contact-bottom">
+            <span>也可以在这些地方找到我</span>
+            <div class="social-links" id="social-links"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a class="footer-brand" href="#home"><span aria-hidden="true">Z.</span> 保持好奇，持续创造。</a>
+      <p>© <span id="current-year">2026</span> <span data-bind="profile.name">张三</span> · 用心设计与构建</p>
+      <a class="back-to-top" href="#home">回到顶部 <span aria-hidden="true">↑</span></a>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+  <noscript><div class="noscript-note">请启用 JavaScript，以查看完整的作品、经历与文章列表。</div></noscript>
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Wake 的个人数字工作台，汇集项目、实践笔记、AI Skills、MCP、网站、课程与教程收藏。">
+  <meta name="theme-color" content="#f3f3ee">
+  <meta name="color-scheme" content="light dark">
+  <title>Wake的数字工作台 · 项目、笔记与资源索引</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%232f54eb'/%3E%3Cpath d='M10 17l9 31 13-23 13 23 9-31' fill='none' stroke='%23fff' stroke-width='7' stroke-linecap='square'/%3E%3C/svg%3E">
+  <script>
+    document.documentElement.classList.add('js');
+    (function () {
+      var saved = null;
+      try { saved = localStorage.getItem('zs-hub-theme'); } catch (error) {}
+      document.documentElement.dataset.theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    })();
+  </script>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/data.js" defer></script>
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">跳转到主要内容</a>
+  <div class="scroll-progress" aria-hidden="true"><span id="scroll-progress-bar"></span></div>
+
+  <svg class="svg-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <symbol id="icon-arrow-up-right" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"/></symbol>
+      <symbol id="icon-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></symbol>
+      <symbol id="icon-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></symbol>
+      <symbol id="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></symbol>
+      <symbol id="icon-moon" viewBox="0 0 24 24"><path d="M20.7 13.1A8.5 8.5 0 0 1 10.9 3.3 8.5 8.5 0 1 0 20.7 13.1Z"/></symbol>
+      <symbol id="icon-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+      <symbol id="icon-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+      <symbol id="icon-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></symbol>
+      <symbol id="icon-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+      <symbol id="icon-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+      <symbol id="icon-shuffle" viewBox="0 0 24 24"><path d="M16 3h5v5M4 20 21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></symbol>
+      <symbol id="icon-command" viewBox="0 0 24 24"><path d="M9 6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6Z"/></symbol>
+      <symbol id="icon-book" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5v14Z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></symbol>
+    </defs>
+  </svg>
+
+  <header class="site-header" id="site-header">
+    <div class="nav-shell">
+      <a class="brand" href="#home" aria-label="Wake的数字工作台，返回顶部">
+        <span class="brand-mark" aria-hidden="true">W/</span>
+        <span class="brand-copy"><strong data-bind="profile.name">Wake</strong><small>PERSONAL INDEX</small></span>
+      </a>
+      <nav class="primary-nav" id="primary-nav" aria-label="主导航">
+        <a href="#projects" data-section="projects">项目与站点</a>
+        <a href="#notes" data-section="notes">笔记与技巧</a>
+        <a href="#ai-lab" data-section="ai-lab">AI 工具箱</a>
+        <a href="#resources" data-section="resources">资源收藏</a>
+        <a href="#about" data-section="about">关于</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="search-trigger" id="search-trigger" type="button" aria-label="搜索全部内容" aria-haspopup="dialog">
+          <svg aria-hidden="true"><use href="#icon-search"/></svg><span>搜索</span><kbd>Ctrl K</kbd>
+        </button>
+        <button class="icon-button" id="theme-toggle" type="button" aria-label="切换为深色主题" title="切换明暗主题">
+          <svg class="theme-icon theme-icon--sun" aria-hidden="true"><use href="#icon-sun"/></svg>
+          <svg class="theme-icon theme-icon--moon" aria-hidden="true"><use href="#icon-moon"/></svg>
+        </button>
+        <button class="icon-button menu-toggle" id="menu-toggle" type="button" aria-label="打开导航菜单" aria-expanded="false" aria-controls="primary-nav">
+          <svg class="menu-icon menu-icon--open" aria-hidden="true"><use href="#icon-menu"/></svg>
+          <svg class="menu-icon menu-icon--close" aria-hidden="true"><use href="#icon-close"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow hero-enter" style="--enter-order: 0"><span class="status-dot" aria-hidden="true"></span> A LIVING INDEX OF THINGS I MAKE &amp; COLLECT</p>
+          <h1 class="hero-title hero-enter" id="hero-title" style="--enter-order: 1">项目、灵感与工具，<br>都在这里<span>继续生长。</span></h1>
+          <p class="hero-intro hero-enter" style="--enter-order: 2" data-bind="profile.intro">我是 Wake。这不是一份简历，而是我的数字工作台：收录做过的项目、验证过的方法、常用的 AI 工具，以及值得反复访问的网站、课程与教程。</p>
+          <div class="hero-actions hero-enter" style="--enter-order: 3">
+            <a class="button button--primary" href="#projects">开始探索<svg aria-hidden="true"><use href="#icon-arrow-right"/></svg></a>
+            <button class="button button--search" id="hero-search" type="button"><svg aria-hidden="true"><use href="#icon-search"/></svg>搜索这个工作台</button>
+          </div>
+        </div>
+        <aside class="now-board hero-enter" style="--enter-order: 2" aria-label="最近动态">
+          <div class="now-board-head"><span>NOW / 最近更新</span><span class="now-pulse" aria-hidden="true"></span></div>
+          <div class="now-board-list" id="now-list"></div>
+          <div class="now-board-foot"><span>保持好奇，持续整理</span><span data-bind="profile.updated">2026.11.05</span></div>
+        </aside>
+      </div>
+      <div class="container index-strip hero-enter" style="--enter-order: 4" aria-label="内容索引">
+        <a href="#projects"><span class="index-number" data-count="projects">06</span><span>项目与站点<small>PROJECTS &amp; SITES</small></span><svg aria-hidden="true"><use href="#icon-arrow-up-right"/></svg></a>
+        <a href="#notes"><span class="index-number" data-count="notes">06</span><span>笔记与技巧<small>NOTES &amp; TIPS</small></span><svg aria-hidden="true"><use href="#icon-arrow-up-right"/></svg></a>
+        <a href="#ai-lab"><span class="index-number" data-count="aiTools">08</span><span>AI 工具箱<small>SKILLS &amp; MCP</small></span><svg aria-hidden="true"><use href="#icon-arrow-up-right"/></svg></a>
+        <a href="#resources"><span class="index-number" data-count="resources">18</span><span>资源收藏<small>SITES &amp; LEARNING</small></span><svg aria-hidden="true"><use href="#icon-arrow-up-right"/></svg></a>
+      </div>
+    </section>
+
+    <section class="section projects-section" id="projects" aria-labelledby="projects-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div><p class="section-kicker">01 / PROJECTS &amp; SITES</p><h2 id="projects-title">做东西，也把东西<span>做出来。</span></h2></div>
+          <p>从正在打磨的实验到已经上线的站点，记录每一次把想法变成现实的过程。</p>
+        </div>
+        <div class="projects-toolbar reveal">
+          <div class="filter-group" id="project-kind-filters" role="group" aria-label="按类型筛选项目与站点">
+            <button class="filter-button is-active" type="button" data-kind="all" aria-pressed="true">全部 <span></span></button>
+            <button class="filter-button" type="button" data-kind="project" aria-pressed="false">项目 <span></span></button>
+            <button class="filter-button" type="button" data-kind="site" aria-pressed="false">站点 <span></span></button>
+          </div>
+          <label class="select-label">标签<select id="project-tag-filter" aria-label="按标签筛选项目与站点"><option value="all">全部标签</option></select></label>
+        </div>
+        <p class="sr-only" id="projects-status" role="status" aria-live="polite"></p>
+        <div class="projects-grid" id="projects-grid"></div>
+        <div class="empty-state" id="projects-empty" hidden><p>没有找到符合条件的项目。</p><button type="button" id="reset-project-filters">重置筛选</button></div>
+      </div>
+    </section>
+
+    <section class="section notes-section" id="notes" aria-labelledby="notes-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div><p class="section-kicker">02 / NOTES &amp; FIELD GUIDES</p><h2 id="notes-title">不只收藏方法，<br>也记录<span>为什么有效。</span></h2></div>
+          <p>实践后的笔记、踩坑记录与可复用的小技巧。比“如何做”再多走一步，留下判断与上下文。</p>
+        </div>
+        <div class="notes-layout">
+          <aside class="notes-sidebar reveal">
+            <p>按主题浏览</p>
+            <div class="note-filters" id="note-filters" role="group" aria-label="按主题筛选笔记"></div>
+            <div class="notes-sidebar-foot"><svg aria-hidden="true"><use href="#icon-book"/></svg><span>持续写作，缓慢更新。<br>每一篇都来自真实实践。</span></div>
+          </aside>
+          <div class="notes-list" id="notes-list"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section ai-section" id="ai-lab" aria-labelledby="ai-title">
+      <div class="container">
+        <div class="section-heading section-heading--dark reveal">
+          <div><p class="section-kicker">03 / AI TOOLBOX</p><h2 id="ai-title">把 AI 变成<br><span>顺手的工具。</span></h2></div>
+          <p>收藏的与自己创建的 Skills、MCP 和工作流。重视本地可控、真实复用，而不是堆砌新概念。</p>
+        </div>
+        <div class="ai-toolbar reveal">
+          <div class="filter-group filter-group--dark" id="ai-filters" role="group" aria-label="按类型筛选 AI 工具">
+            <button class="filter-button is-active" type="button" data-ai-type="all" aria-pressed="true">全部 <span></span></button>
+            <button class="filter-button" type="button" data-ai-type="skill" aria-pressed="false">Skills <span></span></button>
+            <button class="filter-button" type="button" data-ai-type="mcp" aria-pressed="false">MCP <span></span></button>
+          </div>
+          <span class="ai-principle"><i aria-hidden="true"></i> LOCAL-FIRST / REUSABLE / PRACTICAL</span>
+        </div>
+        <div class="ai-grid" id="ai-grid"></div>
+      </div>
+    </section>
+
+    <section class="section bookmarks-section" id="resources" aria-labelledby="resources-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div><p class="section-kicker">04 / RESOURCE LIBRARY</p><h2 id="resources-title">好的资源，<br>值得<span>反复打开。</span></h2></div>
+          <div class="bookmark-intro"><p>网站、课程与教程都放在这里。不只记下地址，也留下推荐理由、来源和适合的学习方式。</p><button class="text-button" id="random-resource" type="button"><svg aria-hidden="true"><use href="#icon-shuffle"/></svg>随机打开</button></div>
+        </div>
+        <div class="projects-toolbar resource-type-bar reveal">
+          <div class="filter-group" id="resource-type-filters" role="group" aria-label="按资源类型筛选">
+            <button class="filter-button is-active" type="button" data-resource-type="all" aria-pressed="true">全部 <span></span></button>
+            <button class="filter-button" type="button" data-resource-type="site" aria-pressed="false">网站 <span></span></button>
+            <button class="filter-button" type="button" data-resource-type="learning" aria-pressed="false">课程与教程 <span></span></button>
+          </div>
+          <span class="resource-summary" id="resource-summary"></span>
+        </div>
+        <div class="bookmark-categories reveal" id="bookmark-categories" role="group" aria-label="按主题筛选资源"></div>
+        <p class="sr-only" id="bookmarks-status" role="status" aria-live="polite"></p>
+        <div class="bookmarks-grid" id="bookmarks-grid"></div>
+      </div>
+    </section>
+
+    <section class="about-section" id="about" aria-labelledby="about-title">
+      <div class="container about-grid reveal">
+        <div class="about-mark" aria-hidden="true">W/</div>
+        <div class="about-copy"><p class="section-kicker">ABOUT THIS CORNER</p><h2 id="about-title">我是 Wake，<br>一个喜欢把复杂事情<br>整理清楚的创造者。</h2><p data-bind="profile.about">关注产品、前端与 AI 工作流。这个主页是我的长期项目，也是一封通往过往想法与未来实验的邀请函。</p></div>
+        <div class="contact-block"><p>发现有趣的东西，或想聊聊合作？</p><a id="email-link" href="mailto:hello@zhangsan.dev"><svg aria-hidden="true"><use href="#icon-mail"/></svg><span data-bind="profile.email">hello@zhangsan.dev</span></a><button class="copy-email" id="copy-email" type="button"><svg aria-hidden="true"><use href="#icon-copy"/></svg><span>复制邮箱</span></button><div class="social-links" id="social-links"></div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="container footer-inner"><a href="#home">W/ 个人数字工作台</a><p>© <span id="current-year">2026</span> <span data-bind="profile.name">Wake</span> · 手工整理，持续生长</p><a href="#home">回到顶部 ↑</a></div></footer>
+
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="dialog-shell">
+      <div class="search-dialog-head"><svg aria-hidden="true"><use href="#icon-search"/></svg><label class="sr-only" for="global-search" id="search-title">搜索全部内容</label><input id="global-search" type="search" placeholder="搜索项目、笔记、Skill、课程或网站…" autocomplete="off"><kbd>ESC</kbd><button class="dialog-close" type="button" data-close-dialog="search-dialog" aria-label="关闭搜索"><svg aria-hidden="true"><use href="#icon-close"/></svg></button></div>
+      <div class="search-meta"><span id="search-hint">输入关键词，或从最近更新开始</span><span>↑↓ 选择 · Enter 打开</span></div>
+      <div class="search-results" id="search-results" role="listbox" aria-label="搜索结果"></div>
+    </div>
+  </dialog>
+
+  <dialog class="note-dialog" id="note-dialog" aria-labelledby="note-dialog-title">
+    <article class="note-article">
+      <div class="note-dialog-top"><span id="note-dialog-category">实践笔记</span><button class="dialog-close" type="button" data-close-dialog="note-dialog" aria-label="关闭文章"><svg aria-hidden="true"><use href="#icon-close"/></svg></button></div>
+      <h2 id="note-dialog-title"></h2><p class="note-dialog-summary" id="note-dialog-summary"></p><div class="note-dialog-meta" id="note-dialog-meta"></div><div class="note-dialog-content" id="note-dialog-content"></div>
+      <div class="note-dialog-foot"><span>写于Wake的数字工作台</span><button type="button" id="copy-note-link"><svg aria-hidden="true"><use href="#icon-copy"/></svg>复制本页链接</button></div>
+    </article>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+  <noscript><div class="noscript-note">请启用 JavaScript，以浏览完整的项目、笔记与资源索引。</div></noscript>
+</body>
+</html>

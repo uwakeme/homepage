@@ -1,4 +1,4 @@
-/* Wake的数字工作台 · 无依赖渲染与交互 */
+/* Wake 的数字工作台 · 无依赖渲染与交互 */
 (function () {
   "use strict";
 
@@ -473,6 +473,53 @@
     });
   }
 
+  /* Visual style presets */
+  const styleDefinitions = {
+    archive: { name: "档案馆", toast: "已切换到档案馆风格", defaultTheme: null },
+    minimal: { name: "留白", toast: "已切换到留白风格", defaultTheme: "light" },
+    terminal: { name: "终端", toast: "已切换到终端风格", defaultTheme: "dark" },
+    poster: { name: "海报", toast: "已切换到海报风格", defaultTheme: "light" }
+  };
+
+  function syncThemeColor() {
+    const background = getComputedStyle(root).getPropertyValue("--bg").trim();
+    if (background) document.querySelector('meta[name="theme-color"]').content = background;
+  }
+
+  function applyStyle(style, persist = false) {
+    const selected = styleDefinitions[style] ? style : "archive";
+    const definition = styleDefinitions[selected];
+    root.dataset.style = selected;
+    document.getElementById("current-style-name").textContent = definition.name;
+    document.getElementById("style-trigger").setAttribute("aria-label", `当前为${definition.name}风格，点击更换`);
+    document.querySelectorAll("[data-style-choice]").forEach((button) => {
+      const active = button.dataset.styleChoice === selected;
+      button.classList.toggle("is-active", active);
+      button.setAttribute("aria-pressed", String(active));
+      button.querySelector(".style-option-state").textContent = active ? "当前使用" : "选择";
+    });
+    syncThemeColor();
+    if (persist) {
+      try { localStorage.setItem("wake-hub-style", selected); } catch (error) {}
+    }
+  }
+
+  function setupStyleSwitcher() {
+    const dialog = document.getElementById("style-dialog");
+    applyStyle(root.dataset.style || "archive");
+    document.getElementById("style-trigger").addEventListener("click", () => openDialog(dialog));
+    dialog.querySelectorAll("[data-style-choice]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const style = button.dataset.styleChoice;
+        applyStyle(style, true);
+        const defaultTheme = styleDefinitions[style].defaultTheme;
+        if (defaultTheme) applyTheme(defaultTheme, true);
+        dialog.close();
+        showToast(styleDefinitions[style].toast);
+      });
+    });
+  }
+
   /* Theme, navigation and motion */
   function getStoredTheme() {
     try {
@@ -487,7 +534,7 @@
     const next = theme === "dark" ? "浅色" : "深色";
     toggle.setAttribute("aria-label", `切换为${next}主题`);
     toggle.title = `切换为${next}主题`;
-    document.querySelector('meta[name="theme-color"]').content = theme === "dark" ? "#141713" : "#f3f3ee";
+    syncThemeColor();
     if (persist) {
       try { localStorage.setItem("zs-hub-theme", theme); } catch (error) {}
     }
@@ -664,6 +711,7 @@
     setupDialogs();
     setupSearch();
     setupReveals();
+    setupStyleSwitcher();
     setupTheme();
     setupMenu();
     setupScrollUI();

@@ -6,7 +6,7 @@ window.portfolioData = {
   profile: {
     name: "Wake",
     role: "创造者 / 前端开发者",
-    email: "hello@zhangsan.dev",
+    email: "youwakeme@qq.com",
     updated: "2026.11.05",
     intro: "我是 Wake。这不是一份简历，而是我的数字工作台：收录做过的项目、验证过的方法、常用的 AI 工具，以及值得反复访问的网站、课程与教程。",
     about: "关注产品、前端与 AI 工作流。这个主页是我的长期项目，也是一封通往过往想法与未来实验的邀请函。"

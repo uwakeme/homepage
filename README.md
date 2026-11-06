@@ -2,6 +2,12 @@
 
 由 **WorkBuddy** 重构的纯静态个人主页。新版不再是个人简历，而是一个可持续维护的“个人索引”：集中收录项目与站点、实践笔记与技巧、AI Skills / MCP，以及分类整理的网站、课程与教程。内置四套可自由切换并自动记忆的视觉风格。
 
+## 在线访问
+
+站点已通过 GitHub Pages 发布：<https://uwakeme.github.io/homepage/>
+
+源码仓库：<https://github.com/uwakeme/homepage>（公开）。发布源为 `main` 分支根目录，根目录的 `.nojekyll` 用于禁用 Jekyll 处理；向 `main` 推送后会自动重新构建，通常几分钟内生效。
+
 ## 如何预览
 
 无需 Node.js、npm、构建工具、API Key 或网络连接。

@@ -1,13 +1,13 @@
 /*
  * 全站内容配置：新增或修改项目、笔记、AI 工具、网站、课程与教程，只需编辑此文件。
- * 所有条目均为可替换的演示数据；链接在正式使用前请换成自己的地址。
+ * 部分条目仍是可替换的演示数据；对外发布前请确认链接已换成真实地址。
  */
 window.portfolioData = {
   profile: {
     name: "Wake",
     role: "创造者 / 前端开发者",
     email: "youwakeme@qq.com",
-    updated: "2026.11.05",
+    updated: "2026.11.10",
     intro: "我是 Wake。这不是一份简历，而是我的数字工作台：收录做过的项目、验证过的方法、常用的 AI 工具，以及值得反复访问的网站、课程与教程。",
     about: "关注产品、前端与 AI 工作流。这个主页是我的长期项目，也是一封通往过往想法与未来实验的邀请函。"
   },
@@ -17,10 +17,10 @@ window.portfolioData = {
     { label: "最近写下", title: "把收藏夹变成真正的知识库", target: "#notes" }
   ],
   projects: [
-    { title: "一隅 · 个人知识库", kind: "project", status: "持续维护", year: "2026", desc: "一个本地优先的知识管理实验，把笔记、网页剪藏与项目资料连接成可回溯的个人知识网络。", url: "https://github.com/uwakeme/knowledge-base", icon: "知", tags: ["知识管理", "本地优先"], tone: "blue", featured: true },
-    { title: "微光工具箱", kind: "site", status: "已上线", year: "2026", desc: "把常用的文本、图片与开发者小工具收进一个无需登录的在线站点。", url: "https://tools.example.com", icon: "具", tags: ["工具", "效率"], tone: "orange" },
+    { title: "一隅 · 个人知识库", kind: "project", status: "持续维护", year: "2026", desc: "一个本地优先的知识管理实验，把笔记、网页剪藏与项目资料连接成可回溯的个人知识网络。", url: "https://github.com/uwakeme/knowledge-base", icon: "知", tags: ["知识管理", "本地优先"], tone: "blue" },
+    { title: "Open Log Viewer", kind: "project", status: "已上线", year: "2026", desc: "面向几百 MB 服务器日志的 VSCode 扩展：整块载入带真实进度，支持多关键词搜索、时间线导航、书签注释与一键重跑的排查模板。", url: "https://www.uwakeme.top/large_log_check/", icon: "L", tags: ["VSCode 扩展", "日志排查"], tone: "orange", featured: true },
     { title: "生活切片", kind: "site", status: "不定期更新", year: "2025", desc: "城市散步、胶片摄影和一些不值得写成长文的日常片段。", url: "https://photos.example.com", icon: "影", tags: ["摄影", "生活"], tone: "cream" },
-    { title: "Skill Foundry", kind: "project", status: "开源实验", year: "2026", desc: "用来创建、检查和发布 AI Agent Skills 的本地脚手架，强调结构化与可复用。", url: "https://github.com/uwakeme/skill-foundry", icon: "S", tags: ["AI", "开源"], tone: "ink" },
+    { title: "Wake-Skills", kind: "project", status: "持续维护", year: "2026", desc: "文档、设计与效率类的 AI Agent Skills 合集：6 个技能覆盖 README、CHANGELOG、项目主页、Banner 与文章评估，同时作为 Mavis skill 目录和 ZCode 插件市场。", url: "https://www.uwakeme.top/wake-skills/", icon: "S", tags: ["AI Skills", "开源"], tone: "ink" },
     { title: "文档森林", kind: "site", status: "持续整理", year: "2025", desc: "把零散的学习笔记整理成有路径、有上下文、方便检索的公开文档。", url: "https://docs.example.com", icon: "文", tags: ["文档", "知识管理"], tone: "green" },
     { title: "Canvas 游乐场", kind: "project", status: "偶尔实验", year: "2024", desc: "一组关于生成艺术、粒子与交互叙事的浏览器小实验。", url: "https://github.com/uwakeme/canvas-playground", icon: "玩", tags: ["创意编码", "开源"], tone: "violet" }
   ],

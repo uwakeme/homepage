@@ -1,28 +1,30 @@
 /*
  * 全站内容配置：新增或修改项目、笔记、AI 工具、网站、课程与教程，只需编辑此文件。
- * 部分条目仍是可替换的演示数据；对外发布前请确认链接已换成真实地址。
+ * projects 收录账号下设置了主页地址、且当前能够访问的项目，条目文案取自各项目主页与 README 的真实素材。
  */
 window.portfolioData = {
   profile: {
     name: "Wake",
     role: "创造者 / 前端开发者",
     email: "youwakeme@qq.com",
-    updated: "2026.11.10",
-    intro: "我是 Wake。这不是一份简历，而是我的数字工作台：收录做过的项目、验证过的方法、常用的 AI 工具，以及值得反复访问的网站、课程与教程。",
-    about: "关注产品、前端与 AI 工作流。这个主页是我的长期项目，也是一封通往过往想法与未来实验的邀请函。"
+    updated: "2026.11.17",
+    intro: "我是 Wake。这不是一份简历，而是我的数字工作台：做过的项目和它们的主页都收在这里，另有验证过的方法、常用的 AI 工具，以及值得反复打开的网站、课程与教程。",
+    about: "关注产品、前端与 AI 工作流。这个主页是我的长期项目，也是所有项目主页的目录：先在这里挑一个，再去它自己的站点继续。"
   },
   now: [
-    { label: "正在迭代", title: "一隅 · 个人知识库", target: "#projects" },
-    { label: "正在整理", title: "一套可复用的 AI 工作流", target: "#ai-lab" },
+    { label: "正在迭代", title: "Wake Plan · 多计划时间管理", target: "#projects" },
+    { label: "正在维护", title: "Wake-Skills · 六个 AI 技能", target: "#ai-lab" },
     { label: "最近写下", title: "把收藏夹变成真正的知识库", target: "#notes" }
   ],
   projects: [
-    { title: "一隅 · 个人知识库", kind: "project", status: "持续维护", year: "2026", desc: "一个本地优先的知识管理实验，把笔记、网页剪藏与项目资料连接成可回溯的个人知识网络。", url: "https://github.com/uwakeme/knowledge-base", icon: "知", tags: ["知识管理", "本地优先"], tone: "blue" },
-    { title: "Open Log Viewer", kind: "project", status: "已上线", year: "2026", desc: "面向几百 MB 服务器日志的 VSCode 扩展：整块载入带真实进度，支持多关键词搜索、时间线导航、书签注释与一键重跑的排查模板。", url: "https://www.uwakeme.top/large_log_check/", icon: "L", tags: ["VSCode 扩展", "日志排查"], tone: "orange", featured: true },
-    { title: "生活切片", kind: "site", status: "不定期更新", year: "2025", desc: "城市散步、胶片摄影和一些不值得写成长文的日常片段。", url: "https://photos.example.com", icon: "影", tags: ["摄影", "生活"], tone: "cream" },
-    { title: "Wake-Skills", kind: "project", status: "持续维护", year: "2026", desc: "文档、设计与效率类的 AI Agent Skills 合集：6 个技能覆盖 README、CHANGELOG、项目主页、Banner 与文章评估，同时作为 Mavis skill 目录和 ZCode 插件市场。", url: "https://www.uwakeme.top/wake-skills/", icon: "S", tags: ["AI Skills", "开源"], tone: "ink" },
-    { title: "文档森林", kind: "site", status: "持续整理", year: "2025", desc: "把零散的学习笔记整理成有路径、有上下文、方便检索的公开文档。", url: "https://docs.example.com", icon: "文", tags: ["文档", "知识管理"], tone: "green" },
-    { title: "Canvas 游乐场", kind: "project", status: "偶尔实验", year: "2024", desc: "一组关于生成艺术、粒子与交互叙事的浏览器小实验。", url: "https://github.com/uwakeme/canvas-playground", icon: "玩", tags: ["创意编码", "开源"], tone: "violet" }
+    { title: "Wake Plan · 多计划时间管理", kind: "project", status: "迭代中", year: "2026", desc: "把时间切段，段里放任务：任务超时后，后面没锁定的任务自动顺延，一天打开一次就知道现在该做什么。数据只存本机，SQLCipher 加密。", url: "http://www.uwakeme.top/wake-plan/", icon: "计", tags: ["Android", "本地优先", "时间管理"], tone: "blue", featured: true },
+    { title: "Lyric Lab · 歌词实验室", kind: "project", status: "已上线", year: "2026", desc: "逐字改词的在线工作台：实时押韵检测与 460 词押韵词库、字数区间控制、版本管理，支持 TXT / LRC / HTML 导出。在线体验在 lyric-lab.uwakeme.top。", url: "http://www.uwakeme.top/lyric_lab/", icon: "词", tags: ["Web 应用", "歌词改编", "TypeScript"], tone: "violet" },
+    { title: "油价势 · 油价与调价提醒", kind: "project", status: "已上线", year: "2026", desc: "给车主用的微信小程序：本地 92#/95#/98#/0# 挂牌价、下一轮调价窗口、近一年阶梯线走势，降价还能设提醒。", url: "http://www.uwakeme.top/oil-trend/", icon: "油", tags: ["微信小程序", "油价", "自建后端"], tone: "orange" },
+    { title: "Wake-Skills · AI 技能合集", kind: "project", status: "持续维护", year: "2026", desc: "6 个 AI 代理技能，覆盖 README 撰写、CHANGELOG 维护、项目主页生成、banner 设计、文章评估与审查交接。同一个仓库既是 Mavis skill 目录，也是 ZCode 插件市场。", url: "http://www.uwakeme.top/wake-skills/", icon: "S", tags: ["AI Skills", "开源", "Mavis"], tone: "ink" },
+    { title: "互联网黑话翻译器", kind: "project", status: "已上线", year: "2026", desc: "开源微信小程序：内置 652 个互联网黑话与专业术语，覆盖 15 个分类，支持黑话与人话双向翻译、搜索、收藏与分享。", url: "http://www.uwakeme.top/internet_slang_translation/", icon: "译", tags: ["微信小程序", "词库", "开源"], tone: "green" },
+    { title: "Open Log Viewer · 大日志排查", kind: "project", status: "已上线", year: "2026", desc: "VSCode 扩展，把服务器日志块变成可打开、可搜索、可标注、可排查的工具：整块载入带真实进度、多关键词搜索、时间线导航、书签注释与可重跑的排查模板，支持 GBK / UTF-16。", url: "http://www.uwakeme.top/large_log_check/", icon: "L", tags: ["VSCode 扩展", "日志排查", "开源"], tone: "cream" },
+    { title: "Wake Tools · 开发者工具集", kind: "site", status: "持续更新", year: "2026", desc: "为开发者准备的小工具集合：时间戳转换、JSON 格式化、Base64、UUID、颜色转换等。", url: "https://tools.uwakeme.top/", icon: "T", tags: ["在线工具", "开发者"], tone: "blue" },
+    { title: "Uwakeme 技术博客", kind: "site", status: "持续更新", year: "2026", desc: "Wake 的个人技术博客，基于 Hexo 与 Fluid 主题，专注分享技术知识、学习心得与生活感悟，主要涉及 Web 开发、后端技术与人工智能。", url: "http://www.uwakeme.top/", icon: "博", tags: ["博客", "Hexo", "技术写作"], tone: "ink" }
   ],
   notes: [
     {
@@ -111,10 +113,12 @@ window.portfolioData = {
     }
   ],
   aiTools: [
-    { name: "frontend-design", type: "skill", origin: "收藏", desc: "从概念、排版到动效，建立有明确审美方向的前端页面，而不是套用通用模板。", url: "https://github.com/uwakeme/frontend-design", command: "npx skills add uwakeme/frontend-design", tags: ["设计", "前端"] },
-    { name: "readme-banner", type: "skill", origin: "创建", desc: "读取项目信息与截图，生成风格统一、可直接放入 README 的 SVG Banner。", url: "https://github.com/uwakeme/readme-banner-skill", command: "npx skills add uwakeme/readme-banner", tags: ["文档", "SVG"] },
-    { name: "research-digest", type: "skill", origin: "创建", desc: "把多来源资料整理成带来源、结论与待验证项的研究摘要，减少重复搜索。", url: "https://github.com/uwakeme/research-digest", command: "npx skills add uwakeme/research-digest", tags: ["研究", "写作"] },
-    { name: "humanizer-zh", type: "skill", origin: "收藏", desc: "检查中文文本中的模板腔、空泛形容与重复句式，保留作者原本的语气。", url: "https://github.com/uwakeme/humanizer-zh", command: "npx skills add uwakeme/humanizer-zh", tags: ["中文", "编辑"] },
+    { name: "readme-craft", type: "skill", origin: "创建", desc: "生成标准化、GFM 规范、语气人性化的 README，自动附带顶部 banner，支持多语言版本与界面截图。", url: "https://github.com/uwakeme/wake-skills/tree/main/readme-craft", command: "mavis skill install https://github.com/uwakeme/wake-skills/tree/main/readme-craft", tags: ["文档", "README"] },
+    { name: "homepage-craft", type: "skill", origin: "创建", desc: "扫描仓库素材生成单文件项目主页，可直接发布到 GitHub Pages，页面内容不编造数字与占位图。", url: "https://github.com/uwakeme/wake-skills/tree/main/homepage-craft", command: "mavis skill install https://github.com/uwakeme/wake-skills/tree/main/homepage-craft", tags: ["主页", "发布"] },
+    { name: "readme-banner", type: "skill", origin: "创建", desc: "为 README 顶部生成 hero 图，支持手写 SVG、AI 位图与 CSS 动效三种形态。", url: "https://github.com/uwakeme/wake-skills/tree/main/readme-banner", command: "mavis skill install https://github.com/uwakeme/wake-skills/tree/main/readme-banner", tags: ["设计", "SVG"] },
+    { name: "changelog-craft", type: "skill", origin: "创建", desc: "按 Keep a Changelog 规范维护 CHANGELOG：提交时逐笔判断改动是否值得记录，发版时归段成新版本。", url: "https://github.com/uwakeme/wake-skills/tree/main/changelog-craft", command: "mavis skill install https://github.com/uwakeme/wake-skills/tree/main/changelog-craft", tags: ["文档", "发布"] },
+    { name: "article-valuator", type: "skill", origin: "创建", desc: "按深度与信息密度、可操作性、新颖度与时效、相关性四维打分，判断一篇文章值不值得精读。", url: "https://github.com/uwakeme/wake-skills/tree/main/article-valuator", command: "mavis skill install https://github.com/uwakeme/wake-skills/tree/main/article-valuator", tags: ["阅读", "研究"] },
+    { name: "review-brief", type: "skill", origin: "创建", desc: "把一次改动沉淀成自包含的审查简报，交给另一个 agent 复查时不需要额外对话上下文。", url: "https://github.com/uwakeme/wake-skills/tree/main/review-brief", command: "mavis skill install https://github.com/uwakeme/wake-skills/tree/main/review-brief", tags: ["协作", "审查"] },
     { name: "Filesystem", type: "mcp", origin: "常用", desc: "在明确授权的目录内读写与检索文件，是本地自动化工作流的基础连接器。", url: "https://github.com/modelcontextprotocol/servers", command: "npx -y @modelcontextprotocol/server-filesystem ./", tags: ["本地", "文件"] },
     { name: "Fetch", type: "mcp", origin: "常用", desc: "抓取网页并转换为便于模型阅读的内容，用于资料核对与文档查询。", url: "https://github.com/modelcontextprotocol/servers", command: "uvx mcp-server-fetch", tags: ["网页", "研究"] },
     { name: "Memory", type: "mcp", origin: "常用", desc: "用知识图谱保存跨会话事实与关系，让长期项目保留必要上下文。", url: "https://github.com/modelcontextprotocol/servers", command: "npx -y @modelcontextprotocol/server-memory", tags: ["记忆", "知识"] },
@@ -144,8 +148,6 @@ window.portfolioData = {
   ],
   socials: [
     { name: "GitHub", url: "https://github.com/uwakeme" },
-    { name: "Twitter / X", url: "https://x.com/example" },
-    { name: "B 站", url: "https://space.bilibili.com/example" },
-    { name: "知乎", url: "https://www.zhihu.com/people/example" }
+    { name: "技术博客", url: "http://www.uwakeme.top/" }
   ]
 };

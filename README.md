@@ -1,10 +1,10 @@
 # Wake · 个人数字工作台
 
-由 **WorkBuddy** 重构的纯静态个人主页。新版不再是个人简历，而是一个可持续维护的“个人索引”：集中收录项目与站点、实践笔记与技巧、AI Skills / MCP，以及分类整理的网站、课程与教程。内置四套可自由切换并自动记忆的视觉风格。
+由 **WorkBuddy** 重构的纯静态个人主页。新版不再是个人简历，而是一个可持续维护的“个人索引”：集中收录每个项目自己的主页、实践笔记与技巧、AI Skills / MCP，以及分类整理的网站、课程与教程。内置四套可自由切换并自动记忆的视觉风格。
 
 ## 在线访问
 
-站点已通过 GitHub Pages 发布：<https://uwakeme.github.io/homepage/>
+站点已通过 GitHub Pages 发布：<https://www.uwakeme.top/homepage/>
 
 源码仓库：<https://github.com/uwakeme/homepage>（公开）。发布源为 `main` 分支根目录，根目录的 `.nojekyll` 用于禁用 Jekyll 处理；向 `main` 推送后会自动重新构建，通常几分钟内生效。
 
@@ -48,22 +48,30 @@ homepage/
 
 ### 2. 项目与个人站点
 
-编辑 `projects` 数组：
+编辑 `projects` 数组。一张卡片对应一个项目**自己的主页**，链接点进去就是该项目原本的样子：
 
 ```js
 {
-  title: "一隅 · 个人知识库",
+  title: "Wake Plan · 多计划时间管理",
   kind: "project",       // project = 项目；site = 个人站点
-  status: "持续维护",
+  status: "迭代中",
   year: "2026",
-  desc: "项目简介",
-  url: "https://github.com/uwakeme/repo",
-  icon: "知",            // 一个汉字或简短字母
-  tags: ["知识管理", "本地优先"],
+  desc: "把时间切段，段里放任务……",
+  url: "http://www.uwakeme.top/wake-plan/",
+  icon: "计",            // 一个汉字或简短字母
+  tags: ["Android", "本地优先", "时间管理"],
   tone: "blue",         // blue / orange / cream / ink / green / violet
   featured: true         // 可选；默认视图中展示为大卡片
 }
 ```
+
+维护约定：
+
+- **收录范围**：账号下设置了 homepage 字段、且该主页当前能访问的仓库；不含 fork 与本仓库自身。
+- `url` 填项目自己的主页地址，不是 GitHub 仓库地址。
+- `desc` 取自该项目主页的 meta description 或 README 首段，不写没有依据的介绍。
+- `tags` 用 2 到 3 个关键词，兼顾筛选下拉框的可读性；同一屏相邻卡片尽量不重色。
+- 卡片总数保持满足「(总数 − 2) 能被 3 整除」（当前 8 张），否则桌面端最后一行会空出一半。
 
 类型数量、标签下拉框、筛选结果和首屏统计会自动更新。
 
@@ -88,12 +96,14 @@ homepage/
 - `url`：详情或仓库地址。
 - `tags`：用途标签。
 
+当前的 6 个 Skills 来自自己的 [wake-skills](https://github.com/uwakeme/wake-skills) 仓库，安装命令统一为 `mavis skill install <仓库地址>`；增删技能时同步更新命令与链接。
+
 ### 5. 网站、课程、教程与社交链接
 
 - `bookmarks`：网站名称、分类、简介、链接和短标记 `mark`。
 - `learning`：课程或教程；`format` 使用 `course` / `tutorial`，`meta` 可填写来源、学习形式或节奏。
 - 两类内容共用类型与主题筛选；“随机打开”会使用当前筛选结果，首屏资源统计与全站搜索也会自动更新。
-- `socials`：底部 GitHub、Twitter/X、B 站、知乎等链接；GitHub 已设置为 `https://github.com/uwakeme`。
+- `socials`：底部链接，目前是 GitHub（`https://github.com/uwakeme`）与技术博客（`http://www.uwakeme.top/`）。没有真实地址的链接不留占位。
 
 ## 主题与布局
 
@@ -122,4 +132,6 @@ homepage/
 
 ## 本次验证
 
-已在本机 Chrome 中检查浅色 / 深色主题、主题刷新记忆、全站搜索、搜索直达笔记、文章弹窗、项目筛选、Skills / MCP 筛选、安装命令复制、网站分类筛选与移动端菜单。320、375、768、1024、1440px 下均无横向溢出，浏览器控制台无错误。内容数据完整性与 JavaScript 语法检查也已通过。
+已在本机 Chrome 中检查浅色 / 深色主题、主题刷新记忆、全站搜索、搜索直达笔记、文章弹窗、项目与站点筛选、Skills / MCP 筛选、安装命令复制、网站分类筛选与移动端菜单，浏览器控制台无报错。
+
+本轮把「项目与站点」换成 8 个真实项目主页：1440px 下栅格正好铺满三行，1120 / 900 / 700 / 390px 下均无横向溢出。全部外链已逐个访问确认可达，`node --check js/app.js` 与 `node --check js/data.js` 通过，数据完整性与 id 唯一性检查通过。
